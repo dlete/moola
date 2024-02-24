@@ -1,0 +1,12 @@
+#!/bin/sh
+
+test_url='35.232.51.61:5000/extract'
+#img_file=./awesome_invoice.png
+img_file=./DSC_0051.JPG
+
+(echo  '{';
+ echo ' "image": "';
+    base64 $img_file;
+    echo '", '
+    echo ' "features": [{ "donate": "1"}] ';
+    echo ' }') | curl -H "Content-Type: application/json" -d @-  $test_url

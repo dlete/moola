@@ -1,0 +1,25 @@
+#https://stackoverflow.com/questions/31594769/posting-image-using-requests-on-python
+import base64
+import requests
+
+url = 'http://35.232.51.61:5000/extract'
+headers= {'Content-Type': 'application/json'}
+image_file = open('./DSC_0051.JPG', 'rb').read()
+image_encoded = base64.b64encode(image_file)
+# https://stackoverflow.com/questions/37225035/serialize-in-json-a-base64-encoded-data
+base64_string = image_encoded.decode('utf-8')
+payload = {
+    'image': base64_string,
+    'features': [{ "donate": "1"}]
+}
+#r = requests.post(url, headers=headers, data=payload)
+
+# does not work
+import json
+r = requests.post(url, data=json.dumps(payload))
+
+
+
+print(r.headers)
+print(r.status_code)
+print(r.text)

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<div class="container">
+
+    <h3 class="mb-4">{{ page_header }}</h3>
+
+    <p class="mb-4">Using the <code>embed</code> tag</p>
+    {% comment %}
+    {% for receipt in receipts %}
+    {% endcomment %}
+    <div class="embed-responsive embed-responsive-1by1 mb-4">
+        <embed class="embed-responsive-item" src="{% if receipt.receipt %}{{ receipt.receipt.url }}{% endif %}">
+    </div>
+
+    {% comment %}
+    {% endfor %}
+    {% endcomment %}
+
+</div>
+
+
+{% endblock content %}

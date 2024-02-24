@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<div class="container">
+
+    <h3 class="mb-4">{{ page_header }}</h3>
+
+    <p class="mb-4">Using the <code>embed</code> tag</p>
+    {% for receipt in receipts %}
+    <div class="embed-responsive embed-responsive-21by9 mb-4">
+        <embed class="embed-responsive-item" src="{% if receipt.receipt %}{{ receipt.receipt.url }}{% endif %}">
+    </div>
+
+    <a href="{% url 'crumbs:receipt_read' receipt.id %}">See full picture</a>
+    {% endfor %}:wq
+
+</div>
+
+
+{% endblock content %}

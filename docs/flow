@@ -1,0 +1,19 @@
+
+receipt model
+upload pictures to receipt
+upload with dropzone.js
+upload creates new receipt and expense
+
+expense model has foreign key to receipt, so that it can be expenses without recepit (e.g. per-diem)
+upload picture
+send picture to ml
+recover values from ml
+
+load form passing values from ml
+pre-populate values
+adjust values
+save expense
+
+when invoking function ./crumbs/libs/utils/mlreader()
+from ./django
+the picture has to be in ./django
